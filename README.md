@@ -54,7 +54,7 @@ Not supported:
 
 ## Migration warning for users of the original module
 
-This is **not** a drop-in replacement for the original [`cutebot.py`](https://github.com/elecfreaks/EF_Produce_MicroPython/blob/master/cutebot.py) in all cases.
+This is **not** a drop-in replacement for the original [`Cutebot.py`](https://github.com/elecfreaks/EF_Produce_MicroPython/blob/master/Cutebot.py) in all cases.
 
 Because this revision renames parts of the API, existing code written for the original module may need to be updated.
 

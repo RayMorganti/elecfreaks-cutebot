@@ -181,10 +181,10 @@ class Cutebot(object):
         i2c.write(CUTEBOT_ADDR, bytearray([servo + 4, angle, 0, 0]))
 
 if __name__ == '__main__':
-    ct = CUTEBOT()
+    ct = Cutebot()
 
     ct.set_motors_speed(1, 100)
-    ct.set_car_light(left, 90, 90, 90)
+    ct.set_car_headlight(left, 90, 90, 90)
     distance=ct.get_distance()
     while(True):
         display.scroll(distance)

@@ -10,5 +10,5 @@ from cutebot import Cutebot
 robot = Cutebot()
 
 while True:
-    robot.random_neopixel_colours(200)
+    robot.set_random_neopixel_colors(200)
     sleep(20)  

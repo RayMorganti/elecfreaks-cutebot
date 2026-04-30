@@ -16,7 +16,7 @@ This revision is intended specifically for the **Elecfreaks Cutebot** and is des
 
 - added `set_neopixels()`
 - added `set_neopixels_random()``
-- renamed two methods for greater clarity and consistency
+- renamed one method for greater clarity and consistency
 
 ## Origin
 

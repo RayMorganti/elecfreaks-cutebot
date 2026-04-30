@@ -16,7 +16,7 @@ This revision is intended specifically for the **Elecfreaks Cutebot** and is des
 
 - Renamed the CUTEBOT() class
 - added `set_neopixels()`
-- added `set_neopixels_random()``
+- added `set_neopixels_random()`
 - renamed one method for greater clarity and consistency
 
 ## Origin

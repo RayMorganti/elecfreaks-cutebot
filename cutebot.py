@@ -99,7 +99,7 @@ class Cutebot(object):
     Display random colors on NeoPixels.  Nonlooping.
     Call this in a **while** loop.
     """
-    def random_neopixel_colours(self, delay_ms=200):  # Define a non-blocking method that updates one underside NeoPixel at a time.
+    def set_random_neopixel_colors(self, delay_ms=200):  # Define a non-blocking method that updates one underside NeoPixel at a time.
         """Update underside NeoPixels with random colours without blocking program flow."""  # Document the purpose of the method.
         if not isinstance(delay_ms, int) or delay_ms < 0:  # Validate that the delay is a non-negative integer.
             raise ValueError('delay_ms must be an integer >= 0')  # Raise an error if the delay value is invalid.

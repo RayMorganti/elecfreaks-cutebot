@@ -62,9 +62,8 @@ Because this revision renames parts of the API, existing code written for the or
 
 Changes include:
 
-- class names
+- class name
 - method names
-- constant names
 
 See [`docs/changes_from_original.md`](docs/changes_from_original.md) for a summary of major differences.
 

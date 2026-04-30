@@ -18,7 +18,7 @@ The following changes were made to expose control of the robot's neopixels, whic
 - added new methods:
     - set_neopixel(...)
     - set_neopixels_both(...)
-    - random_neopixel_colours(...)
+    - set_random_neopixel_colors(...)
 
 ### 2. Renamed parts of the API
 

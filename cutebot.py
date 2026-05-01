@@ -99,25 +99,25 @@ class Cutebot(object):
     Display random colors on NeoPixels.  Nonlooping.
     Call this in a **while** loop.
     """
-    def set_random_neopixel_colors(self, delay_ms=200):  # Define a non-blocking method that updates one underside NeoPixel at a time.
-        """Update underside NeoPixels with random colours without blocking program flow."""  # Document the purpose of the method.
-        if not isinstance(delay_ms, int) or delay_ms < 0:  # Validate that the delay is a non-negative integer.
-            raise ValueError('delay_ms must be an integer >= 0')  # Raise an error if the delay value is invalid.
+    def set_random_neopixel_colors(self, delay_ms=200):  
+        """Update underside NeoPixels with random colours without blocking program flow."""
+        if not isinstance(delay_ms, int) or delay_ms < 0: 
+            raise ValueError('delay_ms must be an integer >= 0') 
 
-        current_time_ms = ticks_ms()  # Get the current millisecond tick count.
-        if not hasattr(self, '_random_np_last_update_ms'):  # Check whether the timestamp state has been initialized.
-            self._random_np_last_update_ms = current_time_ms  # Store the initial update timestamp.
-        if not hasattr(self, '_random_np_next_index'):  # Check whether the next NeoPixel index state has been initialized.
+        current_time_ms = ticks_ms()  
+        if not hasattr(self, '_random_np_last_update_ms'):
+            self._random_np_last_update_ms = current_time_ms 
+        if not hasattr(self, '_random_np_next_index'): 
             self._random_np_next_index = 0  # Start with the left NeoPixel.
 
-        if ticks_diff(current_time_ms, self._random_np_last_update_ms) >= delay_ms:  # Check whether enough time has passed for the next update.
+        if ticks_diff(current_time_ms, self._random_np_last_update_ms) >= delay_ms:  
             red_value = random.randint(0, 255)  # Generate a random red component.
             green_value = random.randint(0, 255)  # Generate a random green component.
             blue_value = random.randint(0, 255)  # Generate a random blue component.
-            self.__np[self._random_np_next_index] = (red_value, green_value, blue_value)  # Set the current NeoPixel to the random colour.
+            self.__np[self._random_np_next_index] = (red_value, green_value, blue_value)  
             self.__np.show()  # Update the physical NeoPixel LEDs.
-            self._random_np_next_index = (self._random_np_next_index + 1) % 2  # Advance to the next NeoPixel, wrapping between 0 and 1.
-            self._random_np_last_update_ms = current_time_ms  # Record the time of this update.
+            self._random_np_next_index = (self._random_np_next_index + 1) % 2  
+            self._random_np_last_update_ms = current_time_ms  
             
             
     """

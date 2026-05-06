@@ -11,8 +11,11 @@ right = 0x08
 
 class Cutebot(object):
     """基本描述
+
     Cutebot（酷比特）智能赛车
+
     """
+
     def __init__(self):
         i2c.init()
         self.__pin_e = pin12
@@ -43,7 +46,7 @@ class Cutebot(object):
         i2c.write(CUTEBOT_ADDR, bytearray(
             [0x02, right_direction, right_wheel_speed, 0]))
 
-    def set_car_headlight(self, light: int, R: int, G: int, B: int):
+    def set_headlight(self, light: int, R: int, G: int, B: int):
         """
         设置车头灯颜色
         :param light:选择车灯
@@ -99,25 +102,25 @@ class Cutebot(object):
     Display random colors on NeoPixels.  Nonlooping.
     Call this in a **while** loop.
     """
-    def set_random_neopixel_colors(self, delay_ms=200):  
-        """Update underside NeoPixels with random colours without blocking program flow."""
-        if not isinstance(delay_ms, int) or delay_ms < 0: 
-            raise ValueError('delay_ms must be an integer >= 0') 
+    def set_random_neopixel_colors(self, delay_ms=200):  # Define a non-blocking method that updates one underside NeoPixel at a time.
+        """Update underside NeoPixels with random colours without blocking program flow."""  # Document the purpose of the method.
+        if not isinstance(delay_ms, int) or delay_ms < 0:  # Validate that the delay is a non-negative integer.
+            raise ValueError('delay_ms must be an integer >= 0')  # Raise an error if the delay value is invalid.
 
-        current_time_ms = ticks_ms()  
-        if not hasattr(self, '_random_np_last_update_ms'):
-            self._random_np_last_update_ms = current_time_ms 
-        if not hasattr(self, '_random_np_next_index'): 
+        current_time_ms = ticks_ms()  # Get the current millisecond tick count.
+        if not hasattr(self, '_random_np_last_update_ms'):  # Check whether the timestamp state has been initialized.
+            self._random_np_last_update_ms = current_time_ms  # Store the initial update timestamp.
+        if not hasattr(self, '_random_np_next_index'):  # Check whether the next NeoPixel index state has been initialized.
             self._random_np_next_index = 0  # Start with the left NeoPixel.
 
-        if ticks_diff(current_time_ms, self._random_np_last_update_ms) >= delay_ms:  
+        if ticks_diff(current_time_ms, self._random_np_last_update_ms) >= delay_ms:  # Check whether enough time has passed for the next update.
             red_value = random.randint(0, 255)  # Generate a random red component.
             green_value = random.randint(0, 255)  # Generate a random green component.
             blue_value = random.randint(0, 255)  # Generate a random blue component.
-            self.__np[self._random_np_next_index] = (red_value, green_value, blue_value)  
+            self.__np[self._random_np_next_index] = (red_value, green_value, blue_value)  # Set the current NeoPixel to the random colour.
             self.__np.show()  # Update the physical NeoPixel LEDs.
-            self._random_np_next_index = (self._random_np_next_index + 1) % 2  
-            self._random_np_last_update_ms = current_time_ms  
+            self._random_np_next_index = (self._random_np_next_index + 1) % 2  # Advance to the next NeoPixel, wrapping between 0 and 1.
+            self._random_np_last_update_ms = current_time_ms  # Record the time of this update.
             
             
     """
@@ -146,30 +149,25 @@ class Cutebot(object):
         elif unit == 1:
             return round(distance/30.48,2)
 
+
     def get_tracking(self):
         """
-        返回当前巡线头状态
-        :return:00 均在白色
-                10 左黑右白
-                01 左白右黑
-                11 均在黑色
+        Returns:
+        - "00" = both black
+        - "10" = left white, right black
+        - "01" = left black, right white
+        - "11" = both white
         """
-        left = self.__pinL.read_digital()
-        right = self.__pinR.read_digital()
-        if left == 1 and right == 1:
-            return 00
-        elif left == 0 and right == 1:
-            return 10
-        elif left == 1 and right == 0:
-            return 1
-        elif left == 0 and right == 0:
-            return 11
-        else:
-            print("Unknown ERROR")
+        left = pin13.read_digital()
+        right = pin14.read_digital()
+        return str(left) + str(right)
+
 
     def set_servo(self, servo, angle):
         """基本描述
+
         选择伺服电机并且设置角度/速度
+
         Args:
             servo (number): 选择第几个舵机（伺服电机）1,2
             angle (number): 设置舵机角度 0~180
@@ -179,12 +177,12 @@ class Cutebot(object):
         if angle > 180 or angle < 0:
             raise ValueError('angle error,0~180')
         i2c.write(CUTEBOT_ADDR, bytearray([servo + 4, angle, 0, 0]))
-
+        
 if __name__ == '__main__':
     ct = Cutebot()
 
     ct.set_motors_speed(1, 100)
-    ct.set_car_headlight(left, 90, 90, 90)
+    ct.set_headlight(left, 90, 90, 90)
     distance=ct.get_distance()
     while(True):
         display.scroll(distance)

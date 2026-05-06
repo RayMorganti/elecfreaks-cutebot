@@ -25,7 +25,7 @@ This revision is intended specifically for the **Elecfreaks Cutebot** and is des
 This project is based on code from the Elecfreaks repository:
 
 - Repository: [`EF_Produce_MicroPython`](https://github.com/elecfreaks/EF_Produce_MicroPython)
-- Original file used for this revision: [`Cutebot_pro.py`](https://github.com/elecfreaks/EF_Produce_MicroPython/blob/master/Cutebot.py)
+- Original file used for this revision: [`Cutebot.py`](https://github.com/elecfreaks/EF_Produce_MicroPython/blob/master/Cutebot.py)
 
 The Elecfreaks repository is a fork of:
 - https://github.com/lionyhw/EF_Produce_MicroPython

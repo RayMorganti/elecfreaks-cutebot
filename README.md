@@ -4,7 +4,7 @@ A modified MicroPython module for the Elecfreaks Cutebot on the BBC micro:bit v2
 
 ## Overview
 
-This project provides a revised version of the original [`Cutebot.py`](https://github.com/elecfreaks/EF_Produce_MicroPython/blob/master/cutebot.py) module from the Elecfreaks [`EF_Produce_MicroPython`](https://github.com/elecfreaks/EF_Produce_MicroPython) repository.
+This project provides a revised version of the original [`Cutebot.py`](https://github.com/elecfreaks/EF_Produce_MicroPython/blob/master/Cutebot.py) module from the Elecfreaks [`EF_Produce_MicroPython`](https://github.com/elecfreaks/EF_Produce_MicroPython) repository.
 
 This revision is intended specifically for the **Elecfreaks Cutebot** and is designed for use with the **BBC micro:bit v2**.
 

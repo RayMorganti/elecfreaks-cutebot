@@ -1,9 +1,3 @@
-"""
-Version 4.  MicroPython module for Elecfreaks Cutebot.
-Revised code (methods and added class level constants)
-for positional servo control.
-"""
-
 from microbit import *
 from time import sleep_us, ticks_diff, ticks_ms
 from machine import time_pulse_us

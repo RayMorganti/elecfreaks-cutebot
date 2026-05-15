@@ -42,7 +42,7 @@ The upstream repository uses the MIT License. The Elecfreaks fork also includes 
 
 ## Installation
 
-Copy [`cutebot.py`](cutebot.py) to your BBC micro:bit using your preferred MicroPython file transfer method.
+Copy [`cutebot.py`](cutebot.py) and example files to your BBC micro:bit using your preferred MicroPython file transfer method.
 
 ## Compatibility
 
